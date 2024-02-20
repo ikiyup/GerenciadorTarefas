@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste api</title>
+</head>
+<body>
+    <button onclick="getUser(12)">pegar usuario</button>
+    <script type="text/javascript">
+        const getUser = async (id) => {
+            const user = await fetch(`http://localhost:3000/users/${id}`, { method: 'post', body: JSON.stringify({ nome: 'Amanda', username: 'mandandrade', senha: '123' }) })
+                .then(res => res.json())
+
+            console.log(user)
+
+            return user
+        }
+    </script>
+</body>
+</html>
